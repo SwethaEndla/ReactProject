@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table.center{
+            margin-left: auto; 
+            margin-right: auto;
+            
+        }
+        .formate{
+             justify-content: left;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="text">
+        <table  class="center">
+            <tr>
+                <th>Your Name:</th>
+                <td><input type="text" id="Your_Name" placeholder="Your Name" required></td>
+            </tr>
+            <tr>
+                <th>Designation:</th>
+                <td><input type="text" id="Designation" placeholder="Designation" required></td>
+            </tr>
+            <tr>
+                <th>Department:</th>
+                <td><input type="text" id="Department" placeholder="Department" required></td>
+            </tr>
+            <tr>
+                <th>Who You Re writing:</th>
+                <td><input type="text" id="approval_Name" placeholder="Approval Name" required></td>
+            </tr>
+        <tr>
+            <th>Company Name: </th>
+            <td><input type="text"  id="company_name" placeholder="Company Name" required></td>
+        </tr>
+        <tr>
+            <th>Date to Leave :</th>
+            <td><input type="text" id="Leave_Date" placeholder="Leave date" required></td>
+        </tr>
+        <tr>
+            <th>City Name: </th>
+            <td><input type="text" id="city_Name" placeholder="City Name" required></td>
+        </tr>
+        <tr>
+            <th>Mobile Number</th>
+            <td><input type="text" id="Mobile_number" placeholder="mobile number" required></td>
+        </tr>
+        <tr>
+         <td><button ondblclick="formal()" name="Click here" title="click here to get formal letter" id="Button" >Click Here</button></td>
+
+        </tr>
+        </table>
+        <div id="leaveForm">
+        
+        </div>
+    </div>
+    <script>
+        function formal()
+        {
+            var approval_Name=document.getElementById("approval_Name").value;
+            console.log(approval_Name)
+            var company_name=document.getElementById("company_name").value;
+            var Leave_Date=document.getElementById("Leave_Date").value;
+            var Mobile_number=document.getElementById("Mobile_number").value
+            var city_Name=document.getElementById("city_Name").value;
+            var Department=document.getElementById("Department").value;
+            var Your_Name=document.getElementById("Your_Name").value;
+            console.log(Your_Name)
+            var Designation=document.getElementById("Designation").value;
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
+           today = mm + '/' + dd + '/' + yyyy;
+           
+            var adresss=
+              `<div>
+                <div >
+                    To.<br/>
+                    The ${approval_Name}<br/>
+                    ${company_name}<br/>
+                    ${city_Name}<br/><br/>
+                    Sub: Leave application.
+                </div>
+                <div style="float:right;">
+                    Date:
+                    ${today}
+                </div><br/><br/>
+
+                I am writing this letter to seek your approval for leave on ${Leave_Date} due to an important 
+                personal reason.  I hope you understand my situation and please approve my leave request.
+                In case of any emergency work, I will be available on my mobile no ${Mobile_number}<br/><br/>
+                <div class="left">
+
+                    Sincerely,<br/>
+                    ${Your_Name}<br/>
+                    ${Designation}<br/>
+                    ${Department}<br/>
+                </div>
+            </div>`
+          //  document.getElementById("left").style.float="left";
+           // document.getElementById("right").style.float="right"
+           if(Your_Name!=null){
+            document.getElementById("leaveForm").innerHTML=adresss
+           }
+           else
+           document.getElementById("leaveForm").innerHTML="Please fill the form"
+        }
+    </script>
+</body>
+</html>
