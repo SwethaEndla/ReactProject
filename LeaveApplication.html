@@ -25,6 +25,10 @@
                 <th>Your Name:</th>
                 <td><input type="text" id="Your_Name" placeholder="Your Name" required></td>
             </tr>
+              <tr>
+                <th>Employee ID:</th>
+                <td><input type="text" id="empid" placeholder="Employee Id" required></td>
+            </tr>
             <tr>
                 <th>Designation:</th>
                 <td><input type="text" id="Designation" placeholder="Designation" required></td>
@@ -66,7 +70,7 @@
         function formal()
         {
             var approval_Name=document.getElementById("approval_Name").value;
-            console.log(approval_Name)
+            var emp_id =document.getElementById("empid").value
             var company_name=document.getElementById("company_name").value;
             var Leave_Date=document.getElementById("Leave_Date").value;
             var Mobile_number=document.getElementById("Mobile_number").value
@@ -102,6 +106,7 @@
 
                     Sincerely,<br/>
                     ${Your_Name}<br/>
+                    ${emp_id}<br/>
                     ${Designation}<br/>
                     ${Department}<br/>
                 </div>
